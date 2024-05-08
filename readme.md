@@ -49,7 +49,7 @@ Please follow these conditions before code!
 // You can use this function for getMe
 async function getMe() {
   let token; // get token from somewhere
-  const res = await fetch('base_url/auth/me', {
+  const res = await fetch("base_url/auth/me", {
     headers: {
       Authorization: `Bearer ${token}`, // put your token here
     },
