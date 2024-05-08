@@ -4,7 +4,7 @@ function TodoItem({ id, title, status, deleteTodo, editTodo }) {
   const [isEdit, setIsEdit] = useState(false);
   const [editTitle, setEditTitle] = useState(title);
   const [checked, setChecked] = useState(status);
-
+  console.log(checked);
   return (
     <li>
       <div className="li-container">
@@ -15,6 +15,7 @@ function TodoItem({ id, title, status, deleteTodo, editTodo }) {
           value={id}
           defaultChecked={status}
           onChange={() => {
+            editTodo(id, !checked, editTitle);
             setChecked(!status);
           }}
         />
@@ -25,7 +26,7 @@ function TodoItem({ id, title, status, deleteTodo, editTodo }) {
             onKeyDown={(event) => {
               if (event.key === "Enter") {
                 if (editTitle !== title) {
-                  editTodo(id, editTitle, checked);
+                  editTodo(id, checked, editTitle);
                 }
                 setIsEdit(false);
               }
